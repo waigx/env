@@ -19,8 +19,8 @@ set tabstop=4
 set cindent
 set shiftwidth=4
 set softtabstop=4
-
 syntax enable
+
 
 """""""""""""""""""""""""""
 "Set Themes
@@ -44,6 +44,7 @@ let g:airline_theme='solarized'
 let NERDTreeQuitOpen=1
 let NERDTreeShowHidden=1
 
+
 """""""""""""""""""""""""""
 "Set customize shortcuts
 
@@ -66,11 +67,15 @@ map <leader>`q :qa!<CR>
 map <leader>`w :q!<CR>
 "Map shortcuts for Maxmize and restore a window
 map <leader>m :MaximizerToggle<CR>
-"
-map <leader>cck :SyntasticCheck<CR>
+"Map 'Check Grammar'
+map <leader>ck :SyntasticCheck<CR>
+"Map capital K to find system manual in a new window
+runtime! ftplugin/man.vim
+nnoremap K :Man <cword><CR>
 
 "Set shortcuts for moving between window
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
+
