@@ -19,7 +19,7 @@ while true; do
     read -p "Do you wish to keep original config?[y/n]" yn
     case $yn in
         [Yy]* ) exit; break;;
-        [Nn]* ) rm -rf ~/.vimrc_backup ~/.vim_backup;;
+        [Nn]* ) rm -rf ~/.vimrc_backup ~/.vim_backup; break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
