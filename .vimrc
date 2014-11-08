@@ -5,14 +5,31 @@ execute pathogen#infect()
 
 
 """""""""""""""""""""""""
+"Get platfrom info.
+if has("unix")
+	let s:uname = system("uname -s")
+endif
+
+
+"""""""""""""""""""""""""
 "General settings
 
+"For OS X
+if s:uname == "Darwin"
+"Begin for OS X
+set guifont=Monaco:h12
+if has('gui_running')
+	set transparency=3
+endif
+"End for OS X
+endif
+
+"Platform independent
 set number
 set ruler
 set visualbell
 set showcmd
 set showmatch
-set guifont=Monaco:h12
 set showtabline=2
 set laststatus=2  
 set tabstop=4
@@ -27,7 +44,6 @@ syntax enable
 "Use solarized light in GUI model, dark in CLI model
 if has('gui_running')
 	set background=light
-	set transparency=3
 else
 	set background=dark
 endif
