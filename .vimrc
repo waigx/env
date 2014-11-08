@@ -7,22 +7,12 @@ execute pathogen#infect()
 """""""""""""""""""""""""
 "Get platfrom info.
 if has("unix")
-	let s:uname = system("uname -s")
+	let s:uname = substitute(system('uname -s'), "\n", "", "")
 endif
 
 
 """""""""""""""""""""""""
 "General settings
-
-"For OS X
-if s:uname == "Darwin"
-"Begin for OS X
-set guifont=Monaco:h12
-if has('gui_running')
-	set transparency=3
-endif
-"End for OS X
-endif
 
 "Platform independent
 set number
@@ -36,6 +26,16 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 syntax enable
+
+"For OS X
+if s:uname == 'Darwin'
+"Begin for OS X
+set guifont=Monaco:h12
+if has('gui_running')
+	set transparency=3
+endif
+"End for OS X
+endif
 
 
 """""""""""""""""""""""""""
@@ -94,3 +94,4 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
+
