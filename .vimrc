@@ -16,7 +16,6 @@ set guifont=Monaco:h12
 set showtabline=2
 set laststatus=2  
 set tabstop=4
-set cindent
 set shiftwidth=4
 set softtabstop=4
 syntax enable
@@ -28,6 +27,7 @@ syntax enable
 "Use solarized light in GUI model, dark in CLI model
 if has('gui_running')
 	set background=light
+	set transparency=3
 else
 	set background=dark
 endif
@@ -78,4 +78,3 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
-
