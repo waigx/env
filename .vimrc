@@ -7,17 +7,26 @@ execute pathogen#infect()
 """""""""""""""""""""""""
 "Get platfrom info.
 if has("unix")
-	let s:uname = substitute(system('uname -s'), "\n", "", "")
+	let g:uname = system("uname -s")
 endif
 
 
 """""""""""""""""""""""""
 "General settings
 
+"For OS X
+if g:uname == "Darwin"
+"Begin for OS X
+set guifont=Monaco:h12
+if has('gui_running')
+	set transparency=3
+endif
+"End for OS X
+endif
+
 "Platform independent
 set number
 set ruler
-set visualbell
 set showcmd
 set showmatch
 set showtabline=2
@@ -26,16 +35,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 syntax enable
-
-"For OS X
-if s:uname == 'Darwin'
-"Begin for OS X
-set guifont=Monaco:h12
-if has('gui_running')
-	set transparency=3
-endif
-"End for OS X
-endif
 
 
 """""""""""""""""""""""""""
@@ -50,7 +49,6 @@ endif
 colorscheme solarized 
 let g:solarized_termcolors=256
 let g:airline_theme='solarized'
-
 
 
 """""""""""""""""""""""""""
@@ -94,4 +92,3 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
-
