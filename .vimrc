@@ -7,7 +7,7 @@ execute pathogen#infect()
 """""""""""""""""""""""""
 "Get platfrom info.
 if has("unix")
-	let g:uname = system("uname -s")
+	let s:uname = system("uname -s")
 endif
 
 
@@ -15,7 +15,7 @@ endif
 "General settings
 
 "For OS X
-if g:uname == "Darwin"
+if s:uname == "Darwin"
 "Begin for OS X
 set guifont=Monaco:h12
 if has('gui_running')
@@ -64,6 +64,7 @@ let NERDTreeShowHidden=1
 
 "Set leader
 let mapleader = ","
+
 "Map shortcuts for NERDTree
 map <leader>ff :NERDTreeTabsToggle<CR>
 map <leader>f :NERDTreeTabsFind<CR>
@@ -83,9 +84,13 @@ map <leader>`w :q!<CR>
 map <leader>m :MaximizerToggle<CR>
 "Map 'Check Grammar'
 map <leader>ck :SyntasticCheck<CR>
+
 "Map capital K to find system manual in a new window
 runtime! ftplugin/man.vim
-nnoremap K :Man <cword><CR>
+nnoremap K :Man 3 <cword><CR>
+if s:uname=SunOS
+	nnoremap K :Man -s 3c <cword><CR>
+endif
 
 "Set shortcuts for moving between window
 map <C-j> <C-w>j
