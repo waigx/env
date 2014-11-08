@@ -16,7 +16,7 @@ for i in `ls`; do
 done
 
 while true; do
-    read -p "Do you wish to keep original config?" yn
+    read -p "Do you wish to keep original config?[y/n]" yn
     case $yn in
         [Yy]* ) exit; break;;
         [Nn]* ) rm -rf ~/.vimrc_backup ~/.vim_backup;;
