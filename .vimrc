@@ -7,7 +7,7 @@ execute pathogen#infect()
 """""""""""""""""""""""""
 "Get platfrom info.
 if has("unix")
-	let s:uname = system("uname -s")
+	let s:uname = substitute(system('uname -s'), "\n", "", "")
 endif
 
 
@@ -88,7 +88,7 @@ map <leader>ck :SyntasticCheck<CR>
 "Map capital K to find system manual in a new window
 runtime! ftplugin/man.vim
 nnoremap K :Man 3 <cword><CR>
-if s:uname=='SunOS'
+if s:uname=="SunOS"
 	nnoremap K :Man -s 3c <cword><CR>
 endif
 
