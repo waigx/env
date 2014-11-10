@@ -19,7 +19,7 @@ if s:uname == "Darwin"
 "Begin for OS X
 set guifont=Monaco:h12
 if has('gui_running')
-	set transparency=3
+	set transparency=2
 endif
 "End for OS X
 endif
