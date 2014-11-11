@@ -9,3 +9,5 @@ cp -r ~/.vimrc ~/.vim ./
 echo "Delecting backup files..."
 rm .vimrc_backup
 rm -rf .vim_backup
+
+echo "VIM configuration backuped, please backup .tmux.conf manually"
