@@ -2,11 +2,18 @@
 echo "Backing up orignal files..."
 mv ~/.vimrc ~/.vimrc_backup
 mv ~/.vim ~/.vim_backup
+mv ~/.tmux.conf ~/.tmux.conf_backup
 
 printf 'Installing files...\n'
-cp -r .vimrc .vim ~/
+cp -r .vimrc .vim .tmux.conf ~/
+
+echo "Updating tmux theme..."
+cd tmux-colors-solarized/
+git pull
+cat tmuxcolors-light.conf >> ~/.tmux.conf
 
 printf 'Updating bundles...\n'
+
 cd ~/.vim/bundle
 for i in `ls`; do
 	cd "$i"
@@ -15,11 +22,13 @@ for i in `ls`; do
 	cd ..
 done
 
+
+
 while true; do
     read -p "Do you wish to keep original config?[y/n]" yn
     case $yn in
         [Yy]* ) exit; break;;
-        [Nn]* ) rm -rf ~/.vimrc_backup ~/.vim_backup; break;;
+        [Nn]* ) rm -rf ~/.vimrc_backup ~/.vim_backup ~/.tmux.conf_backup; break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
