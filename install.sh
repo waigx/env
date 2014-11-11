@@ -10,6 +10,8 @@ cp -r .vimrc .vim .tmux.conf ~/
 echo "Updating tmux theme..."
 cd tmux-colors-solarized/
 git pull
+
+echo "Install tmux theme..."
 cat tmuxcolors-light.conf >> ~/.tmux.conf
 
 printf 'Updating bundles...\n'
