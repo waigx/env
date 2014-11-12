@@ -97,6 +97,5 @@ map <C-l> <C-w>l
 map <C-h> <C-w>h
 
 "Set shortcut for moving between tab
-map <F9> :tabp<CR>
-map <F10> :tabn<CR>
-
+nnoremap + :tabp<CR>
+nnoremap _ :tabn<CR>
