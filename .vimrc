@@ -35,7 +35,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 syntax enable
-
+set smartindent
 
 """""""""""""""""""""""""""
 "Set Themes
@@ -99,3 +99,4 @@ map <C-h> <C-w>h
 "Set shortcut for moving between tab
 nnoremap _ :tabp<CR>
 nnoremap + :tabn<CR>
+
