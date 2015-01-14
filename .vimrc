@@ -36,6 +36,13 @@ set shiftwidth=4
 set softtabstop=4
 syntax enable
 set smartindent
+"Set line/column highlight
+set cursorline
+set cursorcolumn
+"Set indent guide
+set list
+set listchars=tab:┊\ 
+
 
 """""""""""""""""""""""""""
 "Set Themes
@@ -89,7 +96,7 @@ nnoremap K :Man 3 <cword><CR>
 if s:uname=="SunOS"
 	nnoremap K :Man -s 3c <cword><CR>
 endif
-
+				
 "Set shortcuts for moving between window
 map <C-j> <C-w>j
 map <C-k> <C-w>k
