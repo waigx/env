@@ -1,7 +1,6 @@
 # pack-refs with: peeled fully-peeled 
 55d4ce87aee3359c0c4284c26cb2f61196b2758b refs/remotes/origin/loclist_state
-e4c94d67a9ba7f35397b4a2f0daa8f346a84a8b9 refs/remotes/origin/master
-8f292fc179a5fe60554ea84f1984ec376e598ba5 refs/remotes/origin/quickfix
+2d27fd93d047b1cf4db8f7a032a762eb101d489b refs/remotes/origin/master
 27af10b13952d04c1d56de1cfda183fdeca11dd2 refs/remotes/origin/sphinx_checker
 564496ed5a2df56df13c3fe118bfb0fd2f3be67a refs/tags/1.0.0
 4e31dc1eb00ec67e3c86e4f4b3ce707a0e2fe945 refs/tags/1.1.0
@@ -16,6 +15,7 @@ e3f5958b7d7efdac9327f6b974c8be7c40e6d36d refs/tags/3.0.0
 47f054112b91431f4af391e133f2fcc5f639309c refs/tags/3.3.0
 dc6bb112157af4e44e8bdb998ff866f5f36d00e7 refs/tags/3.4.0
 f88b5c74c9c8c67b1cdb287dc34b52539c7e4854 refs/tags/3.5.0
+36ead6d75ce511a34d01f36051aa4c6d688f73bf refs/tags/3.6.0
 e819386bcceaf8a441144d646b247be616d021b5 refs/tags/v0.0.6
 ^9ad0d868a1b3814ae8b04a2d3c3fa7df6166fa8b
 60ca99a91ed5e2991293ac0a1091739f1f1c1dc3 refs/tags/v0.1.0

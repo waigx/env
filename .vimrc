@@ -89,7 +89,9 @@ map <leader>`w :q!<CR>
 map <leader>m :MaximizerToggle<CR>
 "Map 'Check Grammar'
 map <leader>ck :SyntasticCheck<CR>
-
+"Map Run Current Script
+map <leader>r :!chmod a+x %:p;%:p<CR>
+map <leader>cr :!chmod a+x %:p;clear;%:p<CR>
 "Map capital K to find system manual in a new window
 runtime! ftplugin/man.vim
 nnoremap K :Man 3 <cword><CR>
