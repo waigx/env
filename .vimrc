@@ -87,6 +87,8 @@ map <leader>`q :qa!<CR>
 map <leader>`w :q!<CR>
 "Map shortcuts for Maxmize and restore a window
 map <leader>m :MaximizerToggle<CR>
+"Map shortcuts for Tagbar
+map <leader>T :TagbarToggle<CR>
 "Map 'Check Grammar'
 map <leader>ck :SyntasticCheck<CR>
 "Map Run Current Script
