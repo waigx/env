@@ -1,0 +1,33 @@
+let g:_rtp_here = expand("<sfile>:h:h")
+let &runtimepath = g:_rtp_here . "," . &runtimepath
+
+set nocompatible
+syntax on
+filetype plugin  on
+
+set noswapfile
+set list
+set listchars=tab:].,trail:\|,extends:<,precedes:>
+set number
+
+fun! StatusLineRealSyn() "{{{
+    let synId = synID(line('.'),col('.'),1)
+    let realSynId = synIDtrans(synId)
+    if synId == realSynId
+        return 'Normal'
+    else
+        return synIDattr( realSynId, 'name' )
+    endif
+endfunction "}}}
+
+fun! MyStatuslineLeft() "{{{
+    let sss=""
+    let sss.="%#StatuslineSyn# %{synIDattr(synID(line('.'),col('.'),1),'name')} %0*"           "syntax name
+    let sss.="%#StatuslineRealSyn# %{StatusLineRealSyn()} %0*"           "real syntax name
+
+    return sss
+
+endfunction "}}}
+
+set statusline=%!MyStatuslineLeft()
+set laststatus=2
