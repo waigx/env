@@ -1,4 +1,5 @@
 'maximizer_default_mapping_key'	maximizer.txt	/*'maximizer_default_mapping_key'*
+'maximizer_restore_on_winleave'	maximizer.txt	/*'maximizer_restore_on_winleave'*
 'maximizer_set_default_mapping'	maximizer.txt	/*'maximizer_set_default_mapping'*
 'maximizer_set_mapping_with_bang'	maximizer.txt	/*'maximizer_set_mapping_with_bang'*
 maximizer	maximizer.txt	/*maximizer*

@@ -1,5 +1,7 @@
-3b98a7fcae8f9fff356907171f0406ff8cd28921		branch 'master' of https://github.com/scrooloose/nerdtree
+0b44415a3302030b56755cc1135ca9ca57dc1ada		branch 'master' of https://github.com/scrooloose/nerdtree
+64a9579c11b63e2fe0242d45ca12455a7a7d2833	not-for-merge	branch 'add_path_filter_api' of https://github.com/scrooloose/nerdtree
 1c08146224885004be1009b50ca6da5d4337cc90	not-for-merge	branch 'alternative-windows-opening-fix' of https://github.com/scrooloose/nerdtree
 9704a38a14854aa282748d18cb3042c7f3ebd01a	not-for-merge	branch 'better_symlink_highlighting' of https://github.com/scrooloose/nerdtree
 04d9b275413680c7d7b1cd52edc48e097a9c65e4	not-for-merge	branch 'expt_add_path_flags_and_git' of https://github.com/scrooloose/nerdtree
 57ccede2509ed5c421cc7baacc9fade973069cd6	not-for-merge	branch 'refactor-open' of https://github.com/scrooloose/nerdtree
+87b27802b57bbf383a812b57338fbab28499b7e8	not-for-merge	branch 'update_reuse_option' of https://github.com/scrooloose/nerdtree
