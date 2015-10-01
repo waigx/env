@@ -1,4 +1,8 @@
 """""""""""""""""""""""""
+"Set VIM default encoding
+set encoding=utf-8
+
+"""""""""""""""""""""""""
 "Pathogen plugin management
 execute pathogen#infect()
 :Helptags
