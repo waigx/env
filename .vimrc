@@ -2,6 +2,7 @@
 "Set VIM default encoding
 set encoding=utf-8
 
+
 """""""""""""""""""""""""
 "Pathogen plugin management
 execute pathogen#infect()
@@ -104,7 +105,7 @@ nnoremap K :Man 3 <cword><CR>
 if s:uname=="SunOS"
 	nnoremap K :Man -s 3c <cword><CR>
 endif
-				
+
 "Set shortcuts for moving between window
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -114,4 +115,9 @@ map <C-h> <C-w>h
 "Set shortcut for moving between tab
 nnoremap _ :tabp<CR>
 nnoremap + :tabn<CR>
+
+
+""""""""""""""""""""""""""
+"Allow saving of files as sudo
+cmap w!! w !sudo tee % > /dev/null
 
