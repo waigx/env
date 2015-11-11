@@ -96,6 +96,10 @@ map <leader>m :MaximizerToggle<CR>
 map <leader>g :TagbarToggle<CR>
 "Map 'Check Grammar'
 map <leader>ck :SyntasticCheck<CR>
+
+"Map 'Undo Graphic'
+map <leader>z :GundoToggle<CR>
+
 "Map Run Current Script
 map <leader>r :!chmod a+x %:p;%:p<CR>
 map <leader>cr :!chmod a+x %:p;clear;%:p<CR>
