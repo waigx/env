@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/waigx'
+let g:netrw_dirhist_2='/Users/waigx/Documents'
+let g:netrw_dirhist_3='/Users/waigx/Documents/leetcode'
+let g:netrw_dirhist_4='/Users/waigx'
+let g:netrw_dirhist_5='/Users/waigx/Documents/workspace/test/src'
+let g:netrw_dirhist_6='/Users/waigx/Documents/leetcode/Search_a_2D_Matrix_II'
+let g:netrw_dirhist_7='/Users/waigx/Documents/leetcode/Serialize_and_Deserialize_Binary_Tree'
+let g:netrw_dirhist_8='/Users/waigx/Downloads/google'
+let g:netrw_dirhist_9='/Users/waigx/Documents/leetcode'

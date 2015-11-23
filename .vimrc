@@ -66,10 +66,6 @@ let g:airline_theme='solarized'
 """""""""""""""""""""""""""
 "Plugins' options
 
-"Set NERDTree's options
-let NERDTreeQuitOpen=1
-let NERDTreeShowHidden=1
-
 
 """""""""""""""""""""""""""
 "Set customize shortcuts
@@ -77,9 +73,6 @@ let NERDTreeShowHidden=1
 "Set leader
 let mapleader = ","
 
-"Map shortcuts for NERDTree
-map <leader>ff :NERDTreeTabsToggle<CR>
-map <leader>f :NERDTreeTabsFind<CR>
 "Map shortcuts for highlight search
 map <leader><space> :set hlsearch!<CR>
 "Map tab shortcuts
@@ -101,8 +94,8 @@ map <leader>ck :SyntasticCheck<CR>
 map <leader>z :GundoToggle<CR>
 
 "Map Run Current Script
-map <leader>r :!chmod a+x %:p;%:p<CR>
-map <leader>cr :!chmod a+x %:p;clear;%:p<CR>
+map <leader>r :!chmod a+x "%:p";"%:p"<CR>
+map <leader>cr :!chmod a+x "%:p";clear;"%:p"<CR>
 "Map capital K to find system manual in a new window
 runtime! ftplugin/man.vim
 nnoremap K :Man 3 <cword><CR>
