@@ -62,7 +62,6 @@ colorscheme solarized
 let g:solarized_termcolors=256
 let g:airline_theme='solarized'
 
-
 """""""""""""""""""""""""""
 "Plugins' options
 
@@ -122,6 +121,10 @@ map <leader>ck :SyntasticCheck<CR>
 map <leader>sc :call SpellCheckToggle()<CR>
 "Map ctrl+r in insert mode to execute cmd
 imap <C-r> <esc>:call ExecuteCurrentLine()<CR>i
+
+"Map ctrl+b/f in insert mode to navigate
+imap <C-b> <Left>
+imap <C-f> <Right>
 
 "Map 'Undo Graphic'
 map <leader>z :GundoToggle<CR>
