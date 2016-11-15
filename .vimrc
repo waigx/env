@@ -23,11 +23,16 @@ endif
 if s:uname == "Darwin"
 "Begin for OS X
 set guifont=Monaco:h12
+"fzf installed using Homebrew
+set rtp+=/usr/local/opt/fzf
 if has('gui_running')
   set transparency=2
 endif
 "End for OS X
 endif
+
+"fzf installed using Git under home
+set rtp+=~/.fzf
 
 "Platform independent
 set number
@@ -94,6 +99,18 @@ function! ExecuteCurrentLine()
 	silent put=''
 endfunction
 
+"Add function for search current word
+function! SearchCurrentWord()
+	let current_word=expand("<cword>")
+	let @/ =current_word
+	call fzf#run({
+\		'source': 'ag -l ' . current_word,
+\		'down': '50%',
+\		'sink': 'e'
+\	})
+	execute "normal! n"
+endfunction
+
 
 """""""""""""""""""""""""""
 "Set customize shortcuts
@@ -103,6 +120,8 @@ let mapleader = ","
 
 "Map shortcuts for highlight search
 map <leader><space> :set hlsearch!<CR>
+"Map shortcuts for fzf search word
+map <leader>* :call SearchCurrentWord()<CR>
 "Map tab shortcuts
 map <leader>n :tabe<CR>
 map <leader>t :tabe<CR>
@@ -119,6 +138,8 @@ map <leader>g :TagbarToggle<CR>
 map <leader>ck :SyntasticCheck<CR>
 "Map 'Spell Checking'
 map <leader>sc :call SpellCheckToggle()<CR>
+"Map ctrl+p to search files
+map <C-p> :FZF<CR>
 "Map ctrl+r in insert mode to execute cmd
 imap <C-r> <esc>:call ExecuteCurrentLine()<CR>i
 
