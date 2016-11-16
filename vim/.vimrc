@@ -99,16 +99,23 @@ function! ExecuteCurrentLine()
 	silent put=''
 endfunction
 
-"Add function for search current word
-function! SearchCurrentWord()
-	let current_word=expand("<cword>")
-	let @/ =current_word
+"Add function for searching certain word
+function! SearchWordInDirectory(word)
+	echo 'Searching: ' . a:word
 	call fzf#run({
-\		'source': 'ag -l ' . current_word,
+\		'source': 'ag -l ' . a:word,
+\		'options': '--preview="pygmentize {} | ag --color --passthru ' . a:word . '"',
 \		'down': '50%',
 \		'sink': 'e'
 \	})
 	execute "normal! n"
+endfunction
+
+"Add function for searching current word
+function! SearchCurrentWord()
+	let current_word=expand("<cword>")
+	let @/ =current_word
+	call SearchWordInDirectory(current_word)
 endfunction
 
 
