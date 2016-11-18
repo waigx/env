@@ -1,0 +1,2 @@
+prefix=syntastic
+remote=vim-syntastic/syntastic
