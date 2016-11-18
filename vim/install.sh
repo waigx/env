@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-SOURCES="sources"
-
-
 ts() {
 	echo $(date +'%Y-%m-%dT%H:%M:%S%z')
 }
@@ -20,6 +17,14 @@ ask() {
 
 	read -p "[$(ts)]: $@" input >&1
 	echo "${input}"
+}
+
+is_empty_folder() {
+	if [[ "$(ls -A ${1} 2>&1)" ]]; then
+		echo 0
+	else
+		echo 1
+	fi
 }
 
 check_return() {
@@ -45,50 +50,7 @@ check_return() {
 	fi
 }
 
-declare -A CONFIG
-read_config() {
 
-	CONFIG=(
-		[remote]=""
-		[prefix]=""
-	)
-	while read line; do
-		if [[ ${line} == *"="* ]]; then
-			var=$(echo ${line} | cut -d '=' -f 1)
-			CONFIG[${var}]=$(echo ${line} | cut -d '=' -f 2)
-		fi
-	done < $1
-}
-
-git_clone_update() {
-	git clone $1 $2
-	check_return "No source folder found." q c
-}
-
-main() {
-	source_list="$(ls ${SOURCES})"
-	check_return "No source folder found." q c
-	
-	for source in ${source_list}; do
-		source_path="${SOURCES}/${source}"
-		source_conf="${source}.conf"
-		pkg_list=$(basename $(ls ${source_path}))
-		pkg_list=${pkg_list/${source_conf}/}
-		read_config "${source_path}/${source_conf}"
-		source_prefix=${CONFIG[prefix]}
-		source_remote=${CONFIG[remote]}
-		for pkg in ${pkg_list}; do
-			pkg_path="${source_path}/${pkg}"
-			read_config ${pkg_path}
-			pkg_prefix="${source_prefix}${CONFIG[prefix]}"
-			pkg_remote="${source_remote}${CONFIG[remote]}"
-			if [[ ${pkg_prefix} == "~"* ]]; then
-				pkg_prefix="${HOME}${pkg_prefix#'~'}"
-			fi
-			info $pkg_prefix
-			info $pkg_remote
-		done
-	done
-}
-
-main $@
+info "Installing packages ..."
+scriptPath=$(dirname $0)
+"$scriptPath/packages.sh"

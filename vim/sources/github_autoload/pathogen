@@ -1,0 +1,4 @@
+prefix=
+remote=tpope/vim-pathogen
+before=if [ -d "./bundle" ]; then mv bundle ../; fi
+finish=if [ -d "../bundle" ]; then mv ../bundle ./; fi

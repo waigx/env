@@ -1,2 +1,4 @@
 remote=yonchu/accelerated-smooth-scroll
 prefix=accelerated-smooth-scroll
+before=
+finish=

@@ -102,19 +102,19 @@ endfunction
 "Add function for searching certain word
 function! SearchWordInDirectory(word)
 	echo 'Searching: ' . a:word
+	let @/ =a:word
+	let word="'" . a:word . "'"
 	call fzf#run({
-\		'source': 'ag -l ' . a:word,
-\		'options': '--preview="pygmentize {} | ag --color --passthru ' . a:word . '"',
+\		'source': 'ag -l ' . word,
+\		'options': '--preview="cat {} | ag --color --passthru ' . word . ' | pygmentize -g"',
 \		'down': '50%',
-\		'sink': 'e'
+\		'sink': 'tabedit'
 \	})
-	execute "normal! n"
 endfunction
 
 "Add function for searching current word
 function! SearchCurrentWord()
 	let current_word=expand("<cword>")
-	let @/ =current_word
 	call SearchWordInDirectory(current_word)
 endfunction
 
@@ -191,4 +191,9 @@ nnoremap + :tabn<CR>
 """"""""""""""""""""""""""
 "Allow saving of files as sudo
 cmap w!! w !sudo tee % > /dev/null
+
+
+""""""""""""""""""""""""""
+"Searching word in workspace
+command -nargs=+ S :call SearchWordInDirectory(<q-args>)
 
