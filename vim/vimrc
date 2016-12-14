@@ -49,6 +49,8 @@ set smartindent
 "Set line/column highlight
 set cursorline
 set cursorcolumn
+"Set tags
+set tags=./tags,tags;$HOME
 "Set indent guide
 set list
 set listchars=tab:┊\ 
