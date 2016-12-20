@@ -109,7 +109,7 @@ function! SearchWordInDirectory(word)
 	call fzf#run({
 \		'source': 'ag -l ' . word,
 \		'options': '--preview="cat {} | ag --color --passthru ' . word . ' | pygmentize -g"',
-\		'down': '50%',
+\		'left': '60%',
 \		'sink': 'tabedit'
 \	})
 endfunction
@@ -148,7 +148,10 @@ map <leader>ck :SyntasticCheck<CR>
 "Map 'Spell Checking'
 map <leader>sc :call SpellCheckToggle()<CR>
 "Map ctrl+p to search files
-map <C-p> :FZF<CR>
+map <C-p> :call fzf#run({
+\	'left': '60%',
+\	'sink': 'tabe'
+\})<CR>
 "Map ctrl+r in insert mode to execute cmd
 imap <C-r> <esc>:call ExecuteCurrentLine()<CR>i
 
