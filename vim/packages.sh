@@ -1,57 +1,9 @@
 #!/usr/bin/env bash
 
+scriptPath=$(dirname $0)
+source "$scriptPath/lib.sh"
+
 SOURCES="sources"
-
-
-ts() {
-	echo $(date +'%Y-%m-%dT%H:%M:%S%z')
-}
-
-err() {
-	echo "[$(ts)]: $@" >&2
-}
-
-info() {
-	echo "[$(ts)]: $@" >&1
-}
-
-ask() {
-	local input
-
-	read -p "[$(ts)]: $@" input >&1
-	echo "${input}"
-}
-
-is_empty_folder() {
-	if [[ "$(ls -A ${1} 2>&1)" ]]; then
-		echo 0
-	else
-		echo 1
-	fi
-}
-
-check_return() {
-	if [[ "$?" -ne 0 ]]; then
-		err $1
-		local input
-
-		if [[ $2 == "q" ]]; then
-			if [[ $3 == "c" ]]; then
-				while true; do
-					input=$(ask "Do you wish to continue[y/n]: ")
-					case ${input} in
-						[Yy]* ) break ;;
-						[Nn]* ) err "Exit due to $1"; exit 1 ;;
-						* ) info "Please answer Yes[y] or No[n]" ;;
-					esac
-				done
-			else
-				err "Exit due to $1"
-				exit 1
-			fi
-		fi
-	fi
-}
 
 execute() {
 	local cd_info
@@ -90,18 +42,22 @@ read_config() {
 
 git_clone_update() {
 	local git_info
+	local pwd_info
 
 	info "Checking package ${3} ..."
 	if [[ -d $2 && $(is_empty_folder $2) -eq 0 ]]; then
 		info "Updating package ${3} ..."
-		git_info=$(git --work-tree="${2}" pull 2>&1)
+		pwd_info=$(pwd)
+		cd $2
+		git_info="$(git pull 2>&1)"
+		cd $pwd_info
 		check_return "Update ${3} failed"
 	else
 		info "Installing package ${3} ..."
-		git_info=$(git clone $1 $2 2>&1)
+		git_info="$(git clone $1 $2 2>&1)"
 		check_return "Installation ${3} failed"
 	fi
-	info $git_info
+	info "${git_info}"
 }
 
 main() {
