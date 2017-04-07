@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 scriptPath=$(dirname $0)
-source "$scriptPath/lib.sh"
+source "$scriptPath/util/lib.sh"
 
 
 info "Installing packages ..."
-"$scriptPath/packages.sh"
+"$scriptPath/util/packages.sh"
