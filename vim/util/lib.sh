@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ts() {
-	echo $(date +'%Y-%m-%dT%H:%M:%S%z')
+	echo $(date +'%m-%d %H:%M:%S')
 }
 
 err() {
